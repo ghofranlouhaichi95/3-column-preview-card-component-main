@@ -1,17 +1,4 @@
-/*
-- FONT SIZE(px):
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
---- 07 WHITESPACE(px):
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
-- COLORS: 
--- PRIMARY:
-Bright _orange: hsl(31, 77%, 52%)
-Dark _cyan: hsl(184, 100%, 22%)
-Very dark _cyan: hsl(179, 100%, 13%)
--- NEUTRAL:
-Transparent _white (paragraphs): hsla(0, 0%, 100%, 0.75) 
-Very light _gray (background, headings, buttons): hsl(0, 0%, 95%)
-*/
+/* :root */
 :root {
     --font-secondary: "Big+Shoulders+Display", sans-serif;
     --font-primary: "Lexend Deca", sans-serif;
@@ -27,6 +14,7 @@ Very light _gray (background, headings, buttons): hsl(0, 0%, 95%)
     --m-hg: 6rem;
   }
   
+  /* All elements Styling */
   *,
   *::before,
   *::after {
@@ -36,18 +24,14 @@ Very light _gray (background, headings, buttons): hsl(0, 0%, 95%)
             box-sizing: inherit;
   }
   
+  /* HTML */
   html {
     font-size: 62.5%;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
   }
   
-  @media only screen and (max-width: 56.25em) {
-    html {
-      font-size: 50%;
-    }
-  }
-  
+  /* Body Styling */
   body {
     width: 100%;
     min-height: 100vh;
@@ -70,6 +54,7 @@ Very light _gray (background, headings, buttons): hsl(0, 0%, 95%)
             justify-content: center;
   }
   
+  /* H2 Styling */
   .heading-secondary {
     color: var(--color-gray);
     font-size: 2.4rem;
@@ -77,6 +62,7 @@ Very light _gray (background, headings, buttons): hsl(0, 0%, 95%)
     text-transform: uppercase;
   }
   
+  /* Button Styling */
   .btn {
     color: #000;
     mix-blend-mode: screen;
@@ -99,7 +85,8 @@ Very light _gray (background, headings, buttons): hsl(0, 0%, 95%)
     outline: none;
   }
   
-  .articles {
+  /* Container Styling */
+  .container {
     max-width: 90rem;
     display: -ms-grid;
     display: grid;
@@ -107,44 +94,24 @@ Very light _gray (background, headings, buttons): hsl(0, 0%, 95%)
         grid-template-columns: repeat(3, 1fr);
   }
   
-  @media only screen and (max-width: 46.25em) {
-    .articles {
-      margin: var(--m-lg);
-      -ms-grid-columns: minmax(min-content, 28rem);
-          grid-template-columns: minmax(-webkit-min-content, 28rem);
-          grid-template-columns: minmax(min-content, 28rem);
-    }
-  }
-  
-  .articles > * {
+  .container > * {
     -webkit-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
   }
-  
-  .articles > *:hover {
+
+  .container > *:hover {
     background-position: center;
     background-size: cover;
   }
-  
+ 
+  /* Single Article Styling */
   .article {
     padding: var(--m-hg);
   }
-  
-  @media only screen and (max-width: 46.25em) {
-    .article {
-      padding: var(--m-lg);
-    }
-  }
-  
+    
   .article:first-child {
     border-radius: var(--radius-default) 0 0 var(--radius-default);
     background-color: var(--color-primary);
-  }
-  
-  @media only screen and (max-width: 46.25em) {
-    .article:first-child {
-      border-radius: var(--radius-default) var(--radius-default) 0 0;
-    }
   }
   
   .article:first-child:hover {
@@ -166,20 +133,13 @@ Very light _gray (background, headings, buttons): hsl(0, 0%, 95%)
     background-color: var(--color-tertiary);
   }
   
-  @media only screen and (max-width: 46.25em) {
-    .article:last-child {
-      margin-bottom: var(--m-lg);
-      border-radius: 0 0 var(--radius-default) var(--radius-default);
-    }
-  }
-  
   .article:last-child:hover {
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 66, 65, 0.8)), to(rgba(0, 66, 65, 0.8))), url(../images/luxury.webp);
     background-image: linear-gradient(rgba(0, 66, 65, 0.8), rgba(0, 66, 65, 0.8)), url(../images/luxury.webp);
   }
   
   .article__icon,
-  .article .heading-secondary {
+  .article .secondary_heading {
     margin-bottom: var(--m-md);
   }
   
@@ -197,12 +157,7 @@ Very light _gray (background, headings, buttons): hsl(0, 0%, 95%)
     margin-top: var(--m-hg);
   }
   
-  @media only screen and (max-width: 46.25em) {
-    .article .btn {
-      margin-top: var(--m-lg);
-    }
-  }
-  
+  /* Footer Styling */
   .attribution {
     color: #1f3251;
     font-size: 1rem;
@@ -224,4 +179,33 @@ Very light _gray (background, headings, buttons): hsl(0, 0%, 95%)
   .attribution__link:hover, .attribution__link:active {
     color: var(--color-tertiary);
     border-bottom-color: currentColor;
+  }
+
+
+  /* Smaller Screens */
+   @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%;
+    }
+  }
+  @media only screen and (max-width: 46.25em) {
+    .container {
+      margin: var(--m-lg);
+      -ms-grid-columns: minmax(min-content, 28rem);
+          grid-template-columns: minmax(-webkit-min-content, 28rem);
+          grid-template-columns: minmax(min-content, 28rem);
+    }
+    .article:first-child {
+      border-radius: var(--radius-default) var(--radius-default) 0 0;
+    }
+    .article {
+      padding: var(--m-lg);
+    }
+    .article:last-child {
+      margin-bottom: var(--m-lg);
+      border-radius: 0 0 var(--radius-default) var(--radius-default);
+    }
+    .article .btn {
+      margin-top: var(--m-lg);
+    }
   }
